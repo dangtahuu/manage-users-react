@@ -10,13 +10,14 @@ import {
 } from "@mui/material";
 
 import dayjs from "dayjs";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import { gql, useMutation } from "@apollo/client";
 import { useAppContext } from "../context/useContext";
+import { LoadingButton } from "@mui/lab";
 
 const UPDATE = gql`
   mutation UpdateUser($updateUserInput: UpdateUserInput!, $avatar: Upload) {
@@ -190,7 +191,7 @@ const EditForm = ({ setOpenModal }) => {
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button
+            <LoadingButton
               type="submit"
               fullWidth
               variant="contained"
@@ -198,7 +199,7 @@ const EditForm = ({ setOpenModal }) => {
               loading={loading}
             >
               Submit
-            </Button>
+            </LoadingButton>
           </Grid>
         </Grid>
       </Box>

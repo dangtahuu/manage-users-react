@@ -22,12 +22,12 @@ import formatDate from "../utils/formatDate";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const { user, logOut } = useAppContext();
+  const { user, logOut, token } = useAppContext();
 
   const [openModal, setOpenModal] = useState(false);
 
 
-  if (!user) {
+  if (!token) {
     return <Navigate to="/signin" />;
   }
   return (

@@ -32,12 +32,9 @@ const SIGN_UP = gql`
 
 const SignUpPage = () => {
   const navigate = useNavigate();
-  const { user, openSnack, setOpenSnack } = useAppContext();
+  const { token, setOpenSnack } = useAppContext();
 
-  const [signUp, { data, loading, error }] = useMutation(SIGN_UP);
-
-  // const [openSnack, setOpenSnack] = useState(false);
-  const [snackMessage, setSnackMessage] = useState("");
+  const [signUp, { loading }] = useMutation(SIGN_UP);
 
   const [input, setInput] = useState({
     email: "",
@@ -57,7 +54,6 @@ const SignUpPage = () => {
       [e.target.name]: e.target.value,
     });
   };
-
 
   const validateFields = () => {
     if (!isValidEmail(input.email)) {
@@ -100,7 +96,7 @@ const SignUpPage = () => {
     }
   };
 
-  if (user) {
+  if (token) {
     return <Navigate to="/" />;
   }
 

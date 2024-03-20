@@ -35,11 +35,9 @@ const SIGN_IN = gql`
 
 const SignInPage = () => {
   const navigate = useNavigate();
-  const { user, setNameAndToken, openSnack, setOpenSnack } = useAppContext();
+  const { token, setNameAndToken, setOpenSnack } = useAppContext();
 
-  const [signIn, { data, loading, error }] = useMutation(SIGN_IN);
-
-  const [snackMessage, setSnackMessage] = useState("");
+  const [signIn, { loading }] = useMutation(SIGN_IN);
 
   const [input, setInput] = useState({
     email: "",
@@ -92,7 +90,7 @@ const SignInPage = () => {
     }
   };
 
-  if (user) {
+  if (token) {
     return <Navigate to="/" />;
   }
 
