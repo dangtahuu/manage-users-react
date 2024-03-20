@@ -73,6 +73,11 @@ const ProfilePage = () => {
                 <Avatar src={user.avatar} sx={{ width: 56, height: 56 }} />
               </Grid>
 
+              <Grid item xs={12}>
+                  <FormLabel>Email</FormLabel>
+                  <Typography>{user.email}</Typography>
+                </Grid>
+
               {user.description && (
                 <Grid item xs={12}>
                   <FormLabel>Description</FormLabel>
