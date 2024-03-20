@@ -36,7 +36,6 @@ const AppProvider = ({ children }) => {
     addToLocalStorage(userValue, tokenValue);
   };
 
-
   const logOut = () => {
     removeFromLocalStorage();
     setState({ ...state, user: "", token: "" });
